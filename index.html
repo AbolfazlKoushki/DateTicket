@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>باهام میای دیت؟ 💌</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bs-font-sans-serif:Vazirmatn,Tahoma,sans-serif;--rose:#e8456b;--rose2:#ff8fa8}
+body{min-height:100vh;overflow-x:hidden;background:linear-gradient(135deg,#ffd1dc,#ffe9f0 45%,#e9d5ff)}
+[data-bs-theme=dark] body{background:linear-gradient(135deg,#2a0f1d,#1d1227)}
+.hearts span{position:fixed;bottom:-50px;z-index:0;opacity:.45;animation:rise linear infinite;pointer-events:none}
+@keyframes rise{to{transform:translateY(-115vh) rotate(40deg)}}
+.main{position:relative;z-index:1}
+.glass{backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(255,255,255,.78)!important;border:1px solid rgba(255,255,255,.6)!important}
+[data-bs-theme=dark] .glass{background:rgba(42,26,33,.8)!important;border-color:rgba(255,255,255,.08)!important}
+.step{animation:pop .35s ease}
+@keyframes pop{from{opacity:0;transform:translateY(16px) scale(.96)}}
+.emoji{font-size:4.2rem;line-height:1;display:inline-block;animation:float 2.4s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-8px) rotate(-4deg)}}
+.grad{background:linear-gradient(90deg,var(--rose),#a855f7);-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn-rose{background:linear-gradient(90deg,var(--rose),var(--rose2));color:#fff;border:0;font-weight:700;box-shadow:0 6px 18px rgba(232,69,107,.35)}
+.btn-rose:hover,.btn-rose:active,.btn-rose:focus{color:#fff;opacity:.92}
+.btn-rose:disabled{background:var(--rose);color:#fff;opacity:.4;box-shadow:none}
+.pulse{animation:pulse 1.6s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(232,69,107,.55)}70%{box-shadow:0 0 0 16px rgba(232,69,107,0)}100%{box-shadow:0 0 0 0 rgba(232,69,107,0)}}
+.opt{border:2px solid var(--bs-border-color);border-radius:16px;padding:14px;background:transparent;color:inherit;font-size:1.05rem;transition:.15s;width:100%}
+.opt:active{transform:scale(.97)}
+.opt.on{border-color:var(--rose);background:rgba(232,69,107,.12);font-weight:700;transform:scale(1.02)}
+.progress{height:8px;border-radius:9px}
+.progress-bar{background:linear-gradient(90deg,var(--rose),#a855f7);transition:width .4s}
+.time-in{font-size:2.6rem;font-weight:900;text-align:center;border:2px solid var(--bs-border-color);border-radius:18px;padding:10px;width:100%;background:transparent;color:inherit;direction:ltr}
+.time-in:focus{outline:0;border-color:var(--rose)}
+.runway{min-height:100px;position:relative}
+.item{display:flex;gap:12px;align-items:flex-start;text-align:right;padding:12px;border-radius:14px;background:rgba(232,69,107,.08);margin-bottom:8px}
+.item .ic{flex:none;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-size:1.3rem;background:linear-gradient(135deg,var(--rose),var(--rose2))}
+.item small{display:block;color:var(--bs-secondary-color);font-size:.78rem}
+.item b{display:block;word-break:break-word;white-space:pre-wrap}
+.ticket{border-radius:22px;overflow:hidden;background:var(--bs-body-bg);box-shadow:0 12px 34px rgba(232,69,107,.3)}
+.ticket .top{background:linear-gradient(135deg,var(--rose),#a855f7);color:#fff;padding:18px}
+.ticket .cut{position:relative;border-top:2px dashed var(--bs-border-color);margin:0 16px}
+.ticket .cut:before,.ticket .cut:after{content:"";position:absolute;top:-12px;width:22px;height:22px;border-radius:50%;background:#f9d7e6}
+[data-bs-theme=dark] .ticket .cut:before,[data-bs-theme=dark] .ticket .cut:after{background:#24131f}
+.ticket .cut:before{right:-27px}.ticket .cut:after{left:-27px}
+.bar{height:34px;margin:10px auto 0;width:70%;opacity:.5;display:flex;gap:3px;direction:ltr}.bar i{display:block;height:100%;background:currentColor}
+.conf{position:fixed;top:-30px;z-index:5;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(540deg)}}
+</style>
+</head>
+<body>
+<div class="hearts" id="hearts"></div>
+<div class="container main d-flex align-items-center justify-content-center min-vh-100 py-3">
+  <div class="card glass shadow-lg rounded-5 w-100 text-center" style="max-width:440px">
+    <div class="card-body p-4" id="c"></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+if(matchMedia('(prefers-color-scheme: dark)').matches)document.documentElement.setAttribute('data-bs-theme','dark');
+const hs=document.getElementById('hearts');
+for(let n=0;n<14;n++){const s=document.createElement('span');s.textContent=['💗','💖','✨','💕'][n%4];s.style.left=Math.random()*100+'%';s.style.fontSize=14+Math.random()*22+'px';s.style.animationDuration=9+Math.random()*10+'s';s.style.animationDelay=-Math.random()*14+'s';hs.appendChild(s)}
+
+const steps=[
+ {k:"ساعت",ic:"⏰",e:"⏰",q:"چه ساعتی بیایم؟",type:"time"},
+ {k:"برنامه",ic:"📍",e:"🎯",q:"کجا بریم؟",type:"choice",o:["کافه ☕","پارک و قدم زدن 🌳","موتورسواری 🏍️","ولگردی 🫣"]},
+ {k:"رفت‌وآمد",ic:"🚗",e:"🚦",q:"چجوری بریم؟",type:"choice",o:["پیاده بریم 🚶","با موتور بریم 🏍️","با اسنپ میام 🚕"]},
+ {k:"پیام من",ic:"💬",e:"✍️",q:"یه پیام دلخواه بنویس",type:"text"}
+];
+let i=-1,ans={};
+const c=document.getElementById('c');
+const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const fa=s=>String(s).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
+const val=n=>{const v=ans[n];if(steps[n].type==='time')return v?fa(v):'—';return v&&v.trim()?v.trim():'—'};
+const items=()=>steps.map((s,n)=>`<div class="item"><div class="ic">${s.ic}</div><div class="flex-fill"><small>${s.k}</small><b>${esc(val(n))}</b></div></div>`).join('');
+const prog=p=>`<div class="progress mb-4"><div class="progress-bar" style="width:${p}%"></div></div>`;
+
+function intro(){
+ c.innerHTML=`<div class="step"><div class="emoji">💌</div><h1 class="h2 fw-black mt-3 grad">باهام میای دیت؟</h1>
+ <p class="text-body-secondary mb-4">یه برنامه‌ی خفن برات چیدم، فقط باید انتخاب کنی 😉</p>
+ <div class="runway d-flex gap-2 align-items-start"><button class="btn btn-rose btn-lg flex-fill pulse" id="yes">آره، میام 💖</button><button class="btn btn-secondary btn-lg flex-fill" id="no">نه 😅</button></div></div>`;
+ document.getElementById('yes').onclick=()=>{i=0;show()};
+ const no=document.getElementById('no'),box=no.parentElement;
+ const run=e=>{e.preventDefault();no.style.position='absolute';no.style.width='110px';no.style.left=Math.random()*(box.clientWidth-120)+'px';no.style.top=Math.random()*60+'px'};
+ ['mouseover','touchstart','click'].forEach(ev=>no.addEventListener(ev,run));
+}
+
+function show(){
+ if(i>=steps.length)return summary();
+ const s=steps[i];let body='';
+ if(s.type==='time')body=`<input type="time" id="inp" class="time-in mb-3" value="${ans[i]||''}">`;
+ else if(s.type==='choice')body=`<div class="d-grid gap-2 mb-3">${s.o.map(x=>`<button type="button" class="opt${ans[i]===x?' on':''}">${x}</button>`).join('')}</div>`;
+ else body=`<textarea id="inp" class="form-control rounded-4 mb-3" rows="4" maxlength="200" placeholder="هرچی دلت می‌خواد بنویس... 💭">${esc(ans[i]||'')}</textarea>`;
+ c.innerHTML=`<div class="step">${prog(i/(steps.length+1)*100)}<div class="emoji">${s.e}</div><h1 class="h4 fw-bold my-3">${s.q}</h1>${body}
+ <button class="btn btn-rose btn-lg w-100" id="nx" ${(ans[i]||s.type==='text')?'':'disabled'}>${i===steps.length-1?'ببینم برنامه رو 👀':'مرحله بعد'}</button>
+ ${i>0?'<button class="btn btn-link text-body-secondary mt-1" id="bk">برگرد</button>':''}</div>`;
+ const nx=document.getElementById('nx');
+ if(s.type==='choice')c.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{ans[i]=b.textContent;c.querySelectorAll('.opt').forEach(x=>x.classList.remove('on'));b.classList.add('on');nx.disabled=false});
+ else document.getElementById('inp').oninput=e=>{ans[i]=e.target.value;nx.disabled=(s.type==='time'&&!e.target.value)};
+ nx.onclick=()=>{i++;show()};
+ const bk=document.getElementById('bk');if(bk)bk.onclick=()=>{i--;show()};
+}
+
+function summary(){
+ c.innerHTML=`<div class="step">${prog(88)}<div class="emoji">📝</div><h1 class="h4 fw-bold my-3">برنامه‌ی دیت ما</h1>${items()}
+ <button class="btn btn-rose btn-lg w-100 mt-2 pulse" id="ok">تایید ✅</button><button class="btn btn-link text-body-secondary mt-1" id="ch">تغییر انتخاب‌ها</button></div>`;
+ document.getElementById('ok').onclick=done;
+ document.getElementById('ch').onclick=()=>{i=0;show()};
+}
+
+function done(){
+ c.innerHTML=`<div class="step"><div class="ticket text-end" id="ticket">
+ <div class="top text-center"><div class="fs-1">💘</div><div class="h5 fw-bold mb-0">بلیط دیت تایید شد!</div></div>
+ <div class="p-3 pb-2">${items()}</div><div class="cut"></div>
+ <div class="text-center p-3 text-body-secondary"><small>دیت رسمی ثبت شد ✔</small><div class="bar" id="bars"></div></div></div>
+ <button class="btn btn-rose btn-lg w-100 mt-3" id="save">ارسال بلیط 📤</button>
+ <div class="alert alert-danger fw-bold mt-3 mb-0 pulse">👆 روی دکمه‌ی «ارسال بلیط» بزن و اونو برای من ارسال کن! برای اطمینان یه اسکرین‌شات هم بگیر 📸</div></div>`;
+ document.getElementById('bars').innerHTML=Array.from({length:32},()=>`<i style="width:${1+Math.floor(Math.random()*4)}px"></i>`).join('');
+ document.getElementById('save').onclick=saveTicket;
+ for(let n=0;n<45;n++){const e=document.createElement('span');e.className='conf';e.textContent=['🎉','💖','✨','🎊','💗'][n%5];e.style.left=Math.random()*100+'%';e.style.fontSize=16+Math.random()*16+'px';e.style.animationDuration=2.5+Math.random()*2.5+'s';e.style.animationDelay=Math.random()*1.2+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),7000)}
+}
+async function saveTicket(){
+ const btn=document.getElementById('save');btn.disabled=true;btn.textContent='در حال ساخت عکس...';
+ try{
+  await document.fonts.ready;
+  const cv=await html2canvas(document.getElementById('ticket'),{scale:2,backgroundColor:null,useCORS:true});
+  const blob=await new Promise(r=>cv.toBlob(r,'image/png'));
+  const f=new File([blob],'date-ticket.png',{type:'image/png'});
+  if(navigator.canShare&&navigator.canShare({files:[f]})){
+   try{await navigator.share({files:[f],title:'بلیط دیت'});btn.textContent='ارسال دوباره 📤';btn.disabled=false;return}catch(e){if(e.name==='AbortError'){btn.textContent='ارسال بلیط 📤';btn.disabled=false;return}}
+  }
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='date-ticket.png';document.body.appendChild(a);a.click();a.remove();
+  btn.textContent='بلیط آماده شد ✅ حالا برام بفرستش';
+ }catch(e){btn.textContent='نشد 😕 اسکرین‌شات بگیر';}
+ btn.disabled=false;
+}
+intro();
+</script>
+</body>
+</html>
