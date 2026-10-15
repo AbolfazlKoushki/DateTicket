@@ -46,6 +46,35 @@ body{min-height:100vh;overflow-x:hidden;background:linear-gradient(135deg,#ffd1d
 .bar{height:34px;margin:10px auto 0;width:70%;opacity:.5;display:flex;gap:3px;direction:ltr}.bar i{display:block;height:100%;background:currentColor}
 .conf{position:fixed;top:-30px;z-index:5;pointer-events:none;animation:fall linear forwards}
 @keyframes fall{to{transform:translateY(110vh) rotate(540deg)}}
+/*برای فوتر خودمه شمارم و سورس*/
+  .dev-footer {
+  margin-top: 40px;
+  padding: 18px 12px;
+  text-align: center;
+  background: #2b1d14;
+  color: #e9dcc9;
+  border-top: 3px solid #c8a46a;
+  font-size: 0.9rem;
+}
+.dev-footer .brand {
+  color: #c8a46a;
+  font-weight: 700;
+}
+.dev-footer a.phone {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 4px 14px;
+  border: 1px solid #c8a46a;
+  border-radius: 20px;
+  color: #e9dcc9;
+  text-decoration: none;
+  direction: ltr;
+  transition: all 0.2s;
+}
+.dev-footer a.phone:hover {
+  background: #c8a46a;
+  color: #2b1d14;
+}
 </style>
 </head>
 <body>
@@ -138,5 +167,9 @@ async function saveTicket(){
 }
 intro();
 </script>
+  <footer class="dev-footer">
+  <div>ساخته شده توسط <span class="brand">مستر سورس</span></div>
+  <a class="phone" href="tel:09059885527">📞 09059885527</a>
+  </footer>
 </body>
 </html>
